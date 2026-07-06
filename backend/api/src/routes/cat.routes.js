@@ -15,15 +15,15 @@ CatRouter.get('/:id', async (req, res) => {
 })
 
 CatRouter.post('/', async (req, res) => {
-    const { nome, quantidade } = req.body
-    const cat = await catService.post(nome, quantidade)
+    const { nome, id_item } = req.body
+    const cat = await catService.post(nome, id_item)
     res.send(cat)
 })
 
 CatRouter.put('/:id', async (req, res) => {
     const { id } = req.params
-    const { nome, quantidade } = req.body
-    const cat = await catService.put(nome, quantidade, id)
+    const { nome, id_item } = req.body
+    const cat = await catService.put(nome, id_item, id)
     res.send(cat)
 })
 
