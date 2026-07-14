@@ -15,15 +15,15 @@ UserRouter.get('/:id', async (req, res) => {
 })
 
 UserRouter.post('/', async (req, res) => {
-    const { email, senha, id_item } = req.body
-    const user = await userService.post(email, senha, id_item)
+    const { email, password, id_item } = req.body
+    const user = await userService.post(email, password, id_item)
     res.send(user)
 })
 
 UserRouter.put('/:id', async (req, res) => {
     const { id } = req.params
-    const { email, senha, id_item } = req.body
-    const user = await userService.put(email, senha, id_item, id)
+    const { email, password, id_item } = req.body
+    const user = await userService.put(email, password, id_item, id)
     res.send(user)
 })
 

@@ -17,31 +17,34 @@ function CardDelete() {
 
     const deletarRegistro = (e) => {
         e.preventDefault()
-
+    
         if (!idDigitado.trim()) {
             alert("Por favor, digite o ID do registro que deseja deletar!")
             return
         }
-
+    
         const confirmar = window.confirm(`Tem certeza que deseja deletar o ID ${idDigitado} da rota ${rotaAtiva}?`)
         if (!confirmar) return
-
+    
         setCarregando(true)
         setErro(null)
         setResposta(null)
-
+    
         fetch(`http://localhost:3000${rotaAtiva}/${idDigitado}`, {
             method: 'DELETE'
         })
-            .then(response => {
+            .then(async response => {
                 if (!response.ok) {
                     throw new Error(`Erro ao deletar o ID ${idDigitado} na rota ${rotaAtiva}. Verifique se ele existe.`)
                 }
-                return response.json()
+    
+                const texto = await response.text()
+                
+                return texto ? JSON.parse(texto) : { mensagem: `Registro com ID ${idDigitado} excluído com sucesso!` }
             })
             .then(data => {
                 setResposta(data)
-                setIdDigitado('') 
+                setIdDigitado('')
                 setCarregando(false)
             })
             .catch(err => {
@@ -109,7 +112,7 @@ function CardDelete() {
                     </form>
 
                     <p className="text-gray-400 text-xs font-semibold mb-2">Resposta da API:</p>
-                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-green-400 overflow-x-auto max-h-60 border border-gray-900">
+                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-red-400 overflow-x-auto max-h-60 border border-gray-900">
                         {carregando && "Enviando comando de exclusão..."}
                         {erro && <span className="text-red-400">{erro}</span>}
                         {/* Corrigido aqui: trocado 'respuesta' por 'resposta' */}

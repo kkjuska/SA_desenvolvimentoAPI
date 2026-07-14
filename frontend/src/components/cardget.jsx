@@ -61,10 +61,10 @@ function Cardget() {
                     </div>
                     {}
                     <p className="text-gray-400 text-xs font-semibold mb-2">
-                        Mostrando resultados de: <span className="text-green-400 font-mono">{rotaAtiva}</span>
+                        Mostrando resultados de: <span className="text-[#3852E8] font-mono">{rotaAtiva}</span>
                     </p>
                     {}
-                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-green-400 overflow-x-auto max-h-60">
+                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-[#3852E8] overflow-x-auto max-h-60">
                         {carregando ? (
                             "Carregando dados da rota..."
                         ) : dados ? (

@@ -27,7 +27,7 @@ class CatService {
     } 
     async put(nome, id_item, id) {
         try {
-            const res = await pool.query('UPDATE itens SET nome = $1, id_item = $2 WHERE id = $3 RETURNING *', [nome, id_item, id])
+            const res = await pool.query('UPDATE categorias SET nome = $1, id_item = $2 WHERE id = $3 RETURNING *', [nome, id_item, id])
             return res.rows
             } catch (error) {
                 console.error(error)
@@ -35,7 +35,7 @@ class CatService {
     }
     async delete(id) {
         try {
-            const res = await pool.query('DELETE FROM itens WHERE id = $1 RETURNING *', [id])
+            const res = await pool.query('DELETE FROM categorias WHERE id = $1 RETURNING *', [id])
             return res.rows
         } catch (error) {
             console.error(error)

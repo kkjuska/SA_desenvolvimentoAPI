@@ -18,7 +18,7 @@ function CardPost() {
     const camposPorRota = {
         '/item': [
             { name: 'nome', placeholder: 'Nome do Item (ex: Teclado)' },
-            { name: 'Quantidade', placeholder: 'Numero (ex: 5)', type: 'number' }
+            { name: 'quantidade', placeholder: 'Numero (ex: 5)', type: 'number' }
         ],
         '/cat': [
             { name: 'nome', placeholder: 'Nome da Categoria (ex: Eletrônicos)' },
@@ -26,12 +26,12 @@ function CardPost() {
         ],
         '/user': [
             { name: 'email', placeholder: 'E-mail (ex: lucas@email.com)', type: 'email' },
-            { name: 'senha', placeholder: 'Senha de Acesso', type: 'password' },
+            { name: 'password', placeholder: 'Senha de Acesso', type: 'password' },
             { name: 'id_item', placeholder: 'Id do item pego'}
         ],
         '/setor': [
             { name: 'nome', placeholder: 'Nome do Setor (ex: TI)' },
-            { name: 'quantidade', placeholder: 'quantidade de trabalhadores no setor', type: "number" },
+            { name: 'qt_pessoas', placeholder: 'quantidade de trabalhadores no setor', type: "number" },
             { name: 'id_usuario', placeholder: 'Id do usuario'}
         ]
     }
@@ -46,7 +46,7 @@ function CardPost() {
         setCarregando(true)
         setErro(null)
         setResposta(null)
-
+    
         fetch(`http://localhost:3000${rotaAtiva}`, {
             method: 'POST',
             headers: {
@@ -54,11 +54,14 @@ function CardPost() {
             },
             body: JSON.stringify(formData)
         })
-            .then(response => {
+            .then(async response => {
                 if (!response.ok) {
                     throw new Error(`Erro ao cadastrar na rota ${rotaAtiva}`)
                 }
-                return response.json()
+    
+                const texto = await response.text()
+                
+                return texto ? JSON.parse(texto) : { mensagem: "Registro criado com sucesso!" }
             })
             .then(data => {
                 setResposta(data)

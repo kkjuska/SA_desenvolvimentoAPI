@@ -92,7 +92,7 @@ function CardGetById() {
                             placeholder="Digite o ID (ex: 12)"
                             value={idDigitado}
                             onChange={(e) => setIdDigitado(e.target.value)}
-                            className="bg-gray-950 border border-gray-800 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2 text-green-400 outline-none"
+                            className="bg-gray-950 border border-gray-800 text-sm rounded-lg focus:ring-amber-500 focus:border-amber-500 block w-full p-2 text-[#3852E8] outline-none"
                         />
                         <button
                             type="submit"
@@ -102,7 +102,7 @@ function CardGetById() {
                         </button>
                     </form>
                     <p className="text-gray-400 text-xs font-semibold mb-2">Resultado da busca:</p>
-                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-green-400 overflow-x-auto max-h-60 border border-gray-900">
+                    <pre className="bg-gray-950 p-3 rounded-lg text-xs font-mono text-[#3852E8] overflow-x-auto max-h-60 border border-gray-900">
                         {carregando && "Buscando no banco de dados..."}
                         {erro && <span className="text-red-400">{erro}</span>}
                         {!carregando && !erro && !dados && "Digite o ID acima e clique em buscar."}
