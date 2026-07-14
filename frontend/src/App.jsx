@@ -11,7 +11,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col items-center bg-slate-900 gap-6 pt-10">
+      <div className="w-full min-h-screen flex flex-col items-center bg-[#000000] gap-6 pt-10">
         <Cardget></Cardget>
         <CardGetById></CardGetById>
         <CardPost></CardPost>

@@ -28,7 +28,7 @@ function Cardget() {
     ]
 
     return (
-        <Accordion type="single" collapsible className="bg-gray-800 w-3/4 rounded-3xl text-white overflow-hidden">
+        <Accordion type="single" collapsible className="bg-[#0a0a0a] w-3/4 rounded-3xl text-[#d7d7d7] overflow-hidden">
             <AccordionItem value="card-unico-api" className="border-none">
                 {}
                 <AccordionTrigger className="flex items-center justify-between p-4 hover:no-underline cursor-pointer w-full">
@@ -42,7 +42,7 @@ function Cardget() {
                     </div>
                 </AccordionTrigger>
                 {}
-                <AccordionContent className="bg-gray-900/50 p-5 border-t border-gray-700">
+                <AccordionContent className="bg-[#0f0f0f] p-5 border-t border-gray-700">
                     {}
                     <div className="flex flex-wrap gap-2 mb-4">
                         {rotasDisponiveis.map((rota) => (

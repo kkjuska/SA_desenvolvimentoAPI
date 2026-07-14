@@ -55,7 +55,7 @@ function CardDelete() {
     }
 
     return (
-        <Accordion type="single" collapsible="true" className="bg-gray-800 w-3/4 rounded-3xl text-white overflow-hidden mb-4">
+        <Accordion type="single" collapsible="true" className="bg-[#0a0a0a] w-3/4 rounded-3xl text-[#d7d7d7] overflow-hidden mb-4">
             <AccordionItem value="card-delete" className="border-none">
                 
                 <AccordionTrigger className="flex items-center justify-between p-4 hover:no-underline cursor-pointer w-full">
@@ -69,7 +69,7 @@ function CardDelete() {
                     </div>
                 </AccordionTrigger>
 
-                <AccordionContent className="bg-gray-900/40 p-5 border-t border-gray-800">
+                <AccordionContent className="bg-[#0f0f0f] p-5 border-t border-gray-800">
                     <div className="flex flex-wrap gap-2 mb-4">
                         {rotasDisponiveis.map((rota) => (
                             <button
