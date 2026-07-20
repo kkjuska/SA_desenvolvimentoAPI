@@ -23,7 +23,7 @@ function CardDelete() {
             return
         }
     
-        const confirmar = window.confirm(`Tem certeza que deseja deletar o ID ${idDigitado} da rota ${rotaAtiva}?`)
+        const confirmar = window.confirm(`Tem certeza que deseja deletar o ID ${idDigitado} da rota ${rotaAtiva}? Se isso for um item você pode ter problemas com o aluguel!`)
         if (!confirmar) return
     
         setCarregando(true)
